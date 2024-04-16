@@ -1,6 +1,7 @@
 
 
 let noteListRootElement = document.querySelector('.noteList');
+let notes = [];
 
 document.querySelector('#deleteAllNotes').addEventListener('click', ()=> {
   document.querySelectorAll('.note').forEach(note=> {
@@ -25,8 +26,12 @@ document.querySelector('#createNoteButton').addEventListener('click', ()=> {
 })
 
 function renderNoteToList(note){
+
+  let uniqueID = 'note' + Math.floor(Math.random() * 1000);
+
   let noteDiv = document.createElement('div');
-  noteDiv.className = 'note'
+  noteDiv.classList.add('note', uniqueID);
+
   let noteTitle = document.createElement('h4');
   let noteContent = document.createElement('p');
   let noteDeleteButton = document.createElement('button');
@@ -34,6 +39,10 @@ function renderNoteToList(note){
   noteTitle.innerText = note.title;
   noteContent.innerText = note.content;
   noteDeleteButton.innerText = 'Delete Note';
+
+  noteDeleteButton.addEventListener('click', ()=> {
+    removeElementFromNotesList(uniqueID);
+  })
 
   noteDiv.appendChild(noteTitle);
   noteDiv.appendChild(noteContent);
@@ -43,5 +52,19 @@ function renderNoteToList(note){
 
   document.querySelector('#createNoteTitle').value = "";
   document.querySelector('#createNoteContent').value = "";
+
+  addNoteToLocalStorage(note, uniqueID);
  
+}
+
+function addNoteToLocalStorage(note, uniqueID){
+  note = {...note, uniqueID}
+
+  notes.push(note)
+
+  localStorage.setItem('notes', JSON.stringify(notes))
+}
+
+function removeElementFromNotesList(id) {
+  document.querySelector('.' + id).remove();
 }
