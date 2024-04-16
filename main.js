@@ -9,16 +9,19 @@ document.querySelector('#deleteAllNotes').addEventListener('click', ()=> {
 })
 
 document.querySelector('#createNoteButton').addEventListener('click', ()=> {
+  let createNoteTitle = document.querySelector('#createNoteTitle');
+  let createNoteContent = document.querySelector('#createNoteContent');
   let note = {
-    title: document.querySelector('#createNoteTitle').value,
-    content: document.querySelector('#createNoteContent').value
+    title: createNoteTitle.value,
+    content: createNoteContent.value
   }
 
-  
-     renderNoteToList(note);
-
-  
-  
+  if(createNoteTitle.value == "" ||  createNoteContent.value == ""){
+    alert("The Note field is empty")
+  } else {
+    renderNoteToList(note);
+  }
+ 
 })
 
 function renderNoteToList(note){
@@ -37,5 +40,8 @@ function renderNoteToList(note){
   noteDiv.appendChild(noteDeleteButton);
 
   noteListRootElement.appendChild(noteDiv)
+
+  document.querySelector('#createNoteTitle').value = "";
+  document.querySelector('#createNoteContent').value = "";
  
 }
