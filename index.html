@@ -7,7 +7,151 @@
 </head>
 <body>
 
-  
+
+  <header>
+    <h1>Note Keeper Project</h1>
+    <button id="deleteAllNotes">Delete All Notes</button>
+  </header>
+
+  <section class="noteList">
+
+    <div class="note">
+      <h4>Note Title</h4>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati repellendus saepe quia facere tempora fuga!</p>
+      <button>Delete Note</button>
+    </div>
+    <div class="note">
+      <h4>Note Title</h4>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati repellendus saepe quia facere tempora fuga!</p>
+      <button>Delete Note</button>
+    </div>
+    <div class="note">
+      <h4>Note Title</h4>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati repellendus saepe quia facere tempora fuga!</p>
+      <button>Delete Note</button>
+    </div>
+    <div class="note">
+      <h4>Note Title</h4>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati repellendus saepe quia facere tempora fuga!</p>
+      <button>Delete Note</button>
+    </div>
+    <div class="note">
+      <h4>Note Title</h4>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati repellendus saepe quia facere tempora fuga!</p>
+      <button>Delete Note</button>
+    </div>
+    <div class="note">
+      <h4>Note Title</h4>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati repellendus saepe quia facere tempora fuga!</p>
+      <button>Delete Note</button>
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Create new note</h2>
+    <div class="createNote">
+      <input type="text" id="createNoteTitle" placeholder="Enter note title here">
+      <textarea id="createNoteContent" name="" id="" cols="30" rows="10"></textarea>
+      <button id="createNoteButton">Create Note</button>
+    </div>
+  </section>
+
+ 
   <script type="module" src="./main.js"></script>  
 </body>
 </html>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+  }
+
+  body {
+    background: #B2DFBD;
+  }
+
+  header {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  h1{
+    color: #00695C;
+  }
+
+ #deleteAllNotes {
+  color: #F4511E;
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 12px;
+  font-weight: bold;
+  border: 1px solid black;
+  cursor: pointer;
+ }
+
+ .noteList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+ }
+
+ .note {
+  background: white;
+  border: 1px solid darkgray;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem;
+ }
+
+ .note button {
+  background: darkcyan;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.8rem 2rem;
+  border: none;
+  margin: 0.8rem 0;
+  border-radius: 12px;
+ }
+
+
+ .createNote {
+  background: white;
+  border: 1px solid darkgray;
+  padding: 1rem;
+  width: 40vw;
+  margin: 1rem;
+  border-radius: 12px;
+ }
+
+ input, textarea{
+  display: block;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #00695C;
+  margin: 0.8rem 0;
+ }
+
+ #createNoteButton {
+  background: #F4511E;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.8rem 2rem;
+  border: none;
+  margin: 0.8rem 0;
+  border-radius: 12px;
+ }
+
+ h2 {
+  margin: 1rem;
+ }
+</style>

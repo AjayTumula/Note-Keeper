@@ -1,24 +1,41 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
 
-setupCounter(document.querySelector('#counter'))
+let noteListRootElement = document.querySelector('.noteList');
+
+document.querySelector('#deleteAllNotes').addEventListener('click', ()=> {
+  document.querySelectorAll('.note').forEach(note=> {
+    note.remove();
+  })
+})
+
+document.querySelector('#createNoteButton').addEventListener('click', ()=> {
+  let note = {
+    title: document.querySelector('#createNoteTitle').value,
+    content: document.querySelector('#createNoteContent').value
+  }
+
+  
+     renderNoteToList(note);
+
+  
+  
+})
+
+function renderNoteToList(note){
+  let noteDiv = document.createElement('div');
+  noteDiv.className = 'note'
+  let noteTitle = document.createElement('h4');
+  let noteContent = document.createElement('p');
+  let noteDeleteButton = document.createElement('button');
+
+  noteTitle.innerText = note.title;
+  noteContent.innerText = note.content;
+  noteDeleteButton.innerText = 'Delete Note';
+
+  noteDiv.appendChild(noteTitle);
+  noteDiv.appendChild(noteContent);
+  noteDiv.appendChild(noteDeleteButton);
+
+  noteListRootElement.appendChild(noteDiv)
+ 
+}
